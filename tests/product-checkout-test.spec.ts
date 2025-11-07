@@ -16,7 +16,7 @@ test.describe('Product checkout test', () => {
             },
         });
 
-        testWithLocale(`should add product to cart and verify whether it was added - ${localeCode.toUpperCase()} market`, async ({page, homePage}) => {
+        testWithLocale(`should add product to cart and verify whether it was added - ${localeCode.toUpperCase()} market`, async ({homePage}) => {
             // given
             const navigationMenu = await homePage.getNavigationMenu();
             const shopPage = await navigationMenu.navigateToShopPage();

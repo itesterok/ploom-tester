@@ -5,11 +5,11 @@ const locale = getCurrentLocale();
 
 export default defineConfig({
     testDir: './tests',
-    fullyParallel: false, // Run tests sequentially when debugging
+    fullyParallel: true, // Run tests in parallel across workers
     forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 2 : 0,
-    workers: 1, // Use single worker when debugging
-    reporter: 'html',
+    workers: process.env.CI ? 2 : undefined, // Use 2 workers in CI, auto-detect locally (CPU cores)
+    reporter: [['html', { open: 'never' }]], // Generate static HTML report without opening server
     timeout: 120000,
     use: {
         baseURL: locale.baseDomain, // Use locale-specific base domain
@@ -23,14 +23,14 @@ export default defineConfig({
             name: 'chromium',
             use: {
                 ...devices['Desktop Chrome'],
-                video: 'retain-on-failure', // Explicitly set video for Chromium
+                video: 'retain-on-failure',
             },
         },
         {
             name: 'firefox',
             use: {
                 ...devices['Desktop Firefox'],
-                video: 'retain-on-failure', // Explicitly set video for Firefox
+                video: 'retain-on-failure',
             },
         },
     ],

@@ -16,7 +16,7 @@ on:
           - sl
         default: 'uk'
       browser:
-        description: 'Browser to test on (chromium, firefox)'
+        description: 'Browser to test on'
         required: true
         type: choice
         options:
@@ -28,6 +28,8 @@ jobs:
   test:
     name: Test on ${{ github.event.inputs.market || 'uk' }} - ${{ github.event.inputs.browser || 'chromium' }}
     runs-on: ubuntu-latest
+    outputs:
+      report_folder: ${{ steps.prepare-report.outputs.folder }}
     
     steps:
       - name: Checkout code
@@ -36,7 +38,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '24'
           cache: 'npm'
 
       - name: Install dependencies
@@ -61,10 +63,6 @@ jobs:
           LOCALE: ${{ github.event.inputs.market || 'uk' }}
         run: npx playwright test --project=${{ github.event.inputs.browser || 'chromium' }}
 
-      - name: Generate HTML report
-        if: always()
-        run: npx playwright show-report || true
-
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
@@ -73,5 +71,72 @@ jobs:
           path: |
             test-results/
             playwright-report/
-          retention-days: 30
+          retention-days: 5
+
+      - name: Prepare report for GitHub Pages
+        if: always()
+        id: prepare-report
+        run: |
+          # Ensure playwright-report directory exists
+          if [ ! -d "playwright-report" ]; then
+            echo "Warning: playwright-report directory not found. Creating empty report."
+            mkdir -p playwright-report
+            echo "<html><body><h1>No test report available</h1><p>Tests may have failed before report generation.</p></body></html>" > playwright-report/index.html
+          fi
+          
+          # Create date-time folder name (YYYY-MM-DD-HH-MM format in UTC)
+          DATETIME_FOLDER=$(date -u +"%Y-%m-%d-%H-%M")
+          
+          # Create pages directory structure
+          mkdir -p playwright-report-pages/${DATETIME_FOLDER}
+          
+          # Copy report to date-time folder
+          cp -r playwright-report/* playwright-report-pages/${DATETIME_FOLDER}/ || true
+          
+          # Save folder name as output
+          echo "folder=${DATETIME_FOLDER}" >> $GITHUB_OUTPUT
+          
+          echo "Report copied to folder: ${DATETIME_FOLDER}"
+          ls -la playwright-report-pages/${DATETIME_FOLDER}/ || true
+
+      - name: Upload report to GitHub Pages
+        if: always()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: playwright-report-pages
+
+      - name: Print report URL
+        if: always()
+        run: |
+          REPORT_FOLDER="${{ steps.prepare-report.outputs.folder }}"
+          REPORT_URL="https://itesterok.github.io/ploom-tester/${REPORT_FOLDER}/index.html"
+          echo "::notice::Test report will be available at: ${REPORT_URL}"
+          echo "📊 Test Report URL: ${REPORT_URL}"
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: test
+    if: always()
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Print report URL
+        if: always()
+        run: |
+          REPORT_FOLDER="${{ needs.test.outputs.report_folder }}"
+          if [ -n "$REPORT_FOLDER" ]; then
+            REPORT_URL="https://itesterok.github.io/ploom-tester/${REPORT_FOLDER}/index.html"
+            echo "::notice::Test report is now available at: ${REPORT_URL}"
+            echo "📊 Test Report URL: ${REPORT_URL}"
+            echo ""
+            echo "✅ Deployment complete! View your report at:"
+            echo "   ${REPORT_URL}"
+          else
+            echo "⚠️  Report folder not found in outputs"
+          fi
 

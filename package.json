@@ -8,7 +8,11 @@
     "test:ui": "playwright test --ui",
     "test:debug": "playwright test --debug",
     "test:chromium": "playwright test --project=chromium",
-    "test:firefox": "playwright test --project=firefox"
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:sequential": "playwright test --workers=1",
+    "test:parallel": "playwright test --workers=50%",
+    "report": "open playwright-report/index.html"
   },
   "keywords": [],
   "author": "",
