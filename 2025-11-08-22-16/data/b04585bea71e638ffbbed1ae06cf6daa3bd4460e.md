@@ -1,0 +1,505 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e7]:
+        - link "Logo Ploom" [ref=e10] [cursor=pointer]:
+          - /url: /pl
+          - img "Logo Ploom" [ref=e11]
+        - generic [ref=e13]:
+          - navigation [ref=e16]:
+            - list [ref=e19]:
+              - listitem [ref=e20] [cursor=pointer]:
+                - generic [ref=e21]:
+                  - link "Dlaczego Ploom?":
+                    - /url: /pl/dlaczego-ploom
+                  - img [ref=e24]
+                - generic [ref=e26]:
+                  - generic [ref=e27]:
+                    - heading "Dlaczego Ploom?" [level=3] [ref=e29]
+                    - link "Zobacz więcej" [ref=e31]:
+                      - /url: /pl/dlaczego-ploom
+                      - generic [ref=e32]: Zobacz więcej
+                      - img [ref=e35]
+                  - list [ref=e43]:
+                    - listitem [ref=e44]:
+                      - link "Dlaczego Ploom? Dlaczego Ploom?" [ref=e45]:
+                        - /url: /pl/dlaczego-ploom
+                        - img "Dlaczego Ploom?" [ref=e49]
+                        - heading "Dlaczego Ploom?" [level=5] [ref=e50]
+                    - listitem [ref=e51]:
+                      - link "Odkryj Wkłady Camel Odkryj Wkłady Camel" [ref=e52]:
+                        - /url: /pl/wklady-tytoniowe-camel
+                        - img "Odkryj Wkłady Camel" [ref=e56]
+                        - heading "Odkryj Wkłady Camel" [level=5] [ref=e57]
+                    - listitem [ref=e58]:
+                      - link "Odkryj Akcesoria Ploom Odkryj Akcesoria Ploom" [ref=e59]:
+                        - /url: /pl/akcesoria
+                        - img "Odkryj Akcesoria Ploom" [ref=e63]
+                        - heading "Odkryj Akcesoria Ploom" [level=5] [ref=e64]
+                  - generic [ref=e65]:
+                    - generic [ref=e66]: Zamknij menu
+                    - img [ref=e69]
+              - listitem [ref=e71] [cursor=pointer]:
+                - generic [ref=e72]:
+                  - link "Sklep":
+                    - /url: /pl/sklep
+                  - img [ref=e75]
+                - generic [ref=e77]:
+                  - generic [ref=e78]:
+                    - heading "Sklep" [level=3] [ref=e80]
+                    - link "Zobacz więcej" [ref=e82]:
+                      - /url: /pl/sklep
+                      - generic [ref=e83]: Zobacz więcej
+                      - img [ref=e86]
+                  - generic [ref=e92]:
+                    - list [ref=e94]:
+                      - listitem [ref=e95]:
+                        - generic [ref=e96]:
+                          - link "Ploom X Advanced" [ref=e97]:
+                            - /url: /pl/sklep/produkty/urzadzenie/ploom-x-advanced
+                            - heading "Ploom X Advanced" [level=5] [ref=e98]
+                          - link "Ploom X Advanced" [ref=e99]:
+                            - /url: /pl/sklep/produkty/urzadzenie/ploom-x-advanced
+                            - img "Ploom X Advanced" [ref=e100]
+                          - link "Kup teraz" [ref=e102]:
+                            - /url: /pl/sklep/produkty/urzadzenie/ploom-x-advanced
+                      - listitem [ref=e103]:
+                        - generic [ref=e104]:
+                          - link "Etui materiałowe" [ref=e105]:
+                            - /url: /pl/sklep/produkty/akcesoria/fabric-back-panel
+                            - heading "Etui materiałowe" [level=5] [ref=e106]
+                          - link "Etui materiałowe" [ref=e107]:
+                            - /url: /pl/sklep/produkty/akcesoria/fabric-back-panel
+                            - img "Etui materiałowe" [ref=e108]
+                          - link "Kup teraz" [ref=e110]:
+                            - /url: /pl/sklep/produkty/akcesoria/fabric-back-panel
+                      - listitem [ref=e111]:
+                        - generic [ref=e112]:
+                          - link "Pokrowiec materiałowy" [ref=e113]:
+                            - /url: /pl/sklep/produkty/akcesoria/fabric-carry-case
+                            - heading "Pokrowiec materiałowy" [level=5] [ref=e114]
+                          - link "Pokrowiec materiałowy" [ref=e115]:
+                            - /url: /pl/sklep/produkty/akcesoria/fabric-carry-case
+                            - img "Pokrowiec materiałowy" [ref=e116]
+                          - link "Kup teraz" [ref=e118]:
+                            - /url: /pl/sklep/produkty/akcesoria/fabric-carry-case
+                    - list [ref=e122]:
+                      - listitem [ref=e123]:
+                        - link "Oferty Specjalne" [ref=e124]:
+                          - /url: /pl/oferty-specjalne
+                          - generic [ref=e125]: Oferty Specjalne
+                          - img [ref=e127]
+                      - listitem [ref=e129]:
+                        - link "Wkłady Camel" [ref=e130]:
+                          - /url: /pl/wklady-tytoniowe-camel
+                          - generic [ref=e131]: Wkłady Camel
+                          - img [ref=e133]
+                      - listitem [ref=e135]:
+                        - link "Akcesoria" [ref=e136]:
+                          - /url: /pl/sklep/produkty/akcesoria
+                          - generic [ref=e137]: Akcesoria
+                          - img [ref=e139]
+                  - generic [ref=e141]:
+                    - generic [ref=e142]: Zamknij menu
+                    - img [ref=e145]
+              - listitem [ref=e147] [cursor=pointer]:
+                - generic [ref=e148]:
+                  - link "Ploom Club":
+                    - /url: /pl/loyalty
+                    - text: Ploom Club
+              - listitem [ref=e149] [cursor=pointer]:
+                - link "Oferty Specjalne" [ref=e151]:
+                  - /url: /pl/oferty-specjalne
+              - listitem [ref=e152] [cursor=pointer]:
+                - link "Wsparcie" [ref=e154]:
+                  - /url: /pl/wsparcie
+          - list [ref=e157]:
+            - listitem
+            - listitem [ref=e158]:
+              - button "searchButton" [ref=e161]:
+                - img [ref=e163] [cursor=pointer]
+            - listitem [ref=e166] [cursor=pointer]:
+              - link "Auth" [ref=e167]:
+                - /url: https://www.ploom.pl/pl/auth
+                - img [ref=e170]
+            - listitem [ref=e172] [cursor=pointer]:
+              - button "Twój koszyk" [ref=e174]:
+                - img [ref=e175]
+            - listitem [ref=e179] [cursor=pointer]:
+              - link "Store Locator" [ref=e180]:
+                - /url: https://www.ploom.pl/pl/gdzie-kupic
+                - img [ref=e183]
+      - generic [ref=e187]:
+        - generic [ref=e188]:
+          - img [ref=e190]
+          - img [ref=e193]
+        - list [ref=e195]:
+          - listitem:
+            - link "Strona główna" [ref=e196] [cursor=pointer]:
+              - /url: /pl
+            - img [ref=e198]
+          - listitem [ref=e200]:
+            - paragraph [ref=e201]: Sklep
+    - generic [ref=e207]:
+      - list [ref=e212]:
+        - listitem [ref=e213] [cursor=pointer]:
+          - img [ref=e215]
+          - img "Akcesoria" [ref=e218]
+          - generic [ref=e219]: Akcesoria
+        - listitem [ref=e220] [cursor=pointer]:
+          - img [ref=e222]
+          - img "Ploom X" [ref=e225]
+          - generic [ref=e226]: Ploom X
+        - listitem [ref=e227] [cursor=pointer]:
+          - img [ref=e229]
+          - img "Zestawy" [ref=e232]
+          - generic [ref=e233]: Zestawy
+      - generic [ref=e236]:
+        - generic [ref=e237]:
+          - generic [ref=e238]:
+            - paragraph
+          - generic [ref=e239]:
+            - img "Ploom X Advanced" [ref=e241]
+            - generic [ref=e242]:
+              - banner [ref=e243]:
+                - heading "Ploom X Advanced" [level=3] [ref=e244]
+              - generic [ref=e247]: 99,00 zł
+              - link "Kup teraz" [ref=e251] [cursor=pointer]:
+                - /url: /content/ploom/ploom-pl/pl/sklep/produkty/urzadzenie/ploom-x-advanced
+                - generic [ref=e252]: Kup teraz
+              - link [ref=e253] [cursor=pointer]:
+                - /url: /pl/sklep/produkty/urzadzenie/ploom-x-advanced
+              - generic [ref=e255]:
+                - button "Czarny" [ref=e258]
+                - button "Srebrny" [ref=e261]
+                - button "Złoty" [ref=e264]
+                - generic [ref=e266]: "+1"
+        - generic [ref=e267]:
+          - generic [ref=e268]:
+            - paragraph
+          - generic [ref=e269]:
+            - img "Wymienny panel" [ref=e271]
+            - generic [ref=e272]:
+              - banner [ref=e273]:
+                - heading "Wymienny panel" [level=3] [ref=e274]
+              - generic [ref=e277]: 34,99 zł
+              - link "Kup teraz" [ref=e281] [cursor=pointer]:
+                - /url: /content/ploom/ploom-pl/pl/sklep/produkty/akcesoria/front-panel
+                - generic [ref=e282]: Kup teraz
+              - link [ref=e283] [cursor=pointer]:
+                - /url: /pl/sklep/produkty/akcesoria/front-panel
+              - generic [ref=e285]:
+                - button "Ocean Blue" [ref=e288]
+                - button "Mango Sorbet" [ref=e291]
+                - button "Cotton White" [ref=e294]
+                - generic [ref=e296]: "+1"
+        - generic [ref=e299] [cursor=pointer]:
+          - generic [ref=e300]:
+            - generic [ref=e301]:
+              - heading "Wkłady Camel for Ploom" [level=3] [ref=e302]
+              - paragraph
+            - link "Zobacz więcej" [ref=e304]:
+              - /url: /content/ploom/ploom-pl/pl/wklady-tytoniowe-camel
+              - generic [ref=e305]: Zobacz więcej
+          - img [ref=e306]
+        - generic [ref=e307]:
+          - generic [ref=e308]:
+            - paragraph
+          - generic [ref=e309]:
+            - img "Wymienny panel matowy" [ref=e311]
+            - generic [ref=e312]:
+              - banner [ref=e313]:
+                - heading "Wymienny panel matowy" [level=3] [ref=e314]
+              - generic [ref=e317]: 49,99 zł
+              - link "Kup teraz" [ref=e321] [cursor=pointer]:
+                - /url: /content/ploom/ploom-pl/pl/sklep/produkty/akcesoria/wymienny-panel-matowy
+                - generic [ref=e322]: Kup teraz
+              - link [ref=e323] [cursor=pointer]:
+                - /url: /pl/sklep/produkty/akcesoria/wymienny-panel-matowy
+              - generic [ref=e325]:
+                - button "Czarny" [ref=e328]
+                - button "Gold" [ref=e331]
+        - generic [ref=e332]:
+          - generic [ref=e333]:
+            - paragraph
+          - generic [ref=e334]:
+            - img "Ploom X Advanced skórzany panel tylny brązowy wnętrze zdjęcie z boku" [ref=e336]
+            - generic [ref=e337]:
+              - banner [ref=e338]:
+                - heading "Skórzane etui brązowe" [level=3] [ref=e339]
+              - generic [ref=e342]: 49,99 zł
+              - link "Kup teraz" [ref=e346] [cursor=pointer]:
+                - /url: https://www.ploom.pl/pl/sklep/produkty/akcesoria/leather-back-panel-br%C4%85zowy
+                - generic [ref=e347]: Kup teraz
+              - link [ref=e348] [cursor=pointer]:
+                - /url: https://www.ploom.pl/pl/sklep/produkty/akcesoria/leather-back-panel-br%C4%85zowy
+              - button "Brązowy" [ref=e353]
+        - generic [ref=e354]:
+          - generic [ref=e355]:
+            - paragraph
+          - generic [ref=e356]:
+            - img "Etui materiałowe" [ref=e358]
+            - generic [ref=e359]:
+              - banner [ref=e360]:
+                - heading "Etui materiałowe" [level=3] [ref=e361]
+              - generic [ref=e364]: 49,99 zł
+              - link "Kup teraz" [ref=e368] [cursor=pointer]:
+                - /url: /content/ploom/ploom-pl/pl/sklep/produkty/akcesoria/fabric-back-panel
+                - generic [ref=e369]: Kup teraz
+              - link [ref=e370] [cursor=pointer]:
+                - /url: /pl/sklep/produkty/akcesoria/fabric-back-panel
+              - generic [ref=e372]:
+                - button "Black" [ref=e375]
+                - button "Zielony" [ref=e378]
+        - generic [ref=e379]:
+          - generic [ref=e380]:
+            - paragraph
+          - generic [ref=e381]:
+            - img "Pokrowiec materiałowy" [ref=e383]
+            - generic [ref=e384]:
+              - banner [ref=e385]:
+                - heading "Pokrowiec materiałowy" [level=3] [ref=e386]
+              - generic [ref=e389]: 79,99 zł
+              - link "Kup teraz" [ref=e393] [cursor=pointer]:
+                - /url: /content/ploom/ploom-pl/pl/sklep/produkty/akcesoria/fabric-carry-case
+                - generic [ref=e394]: Kup teraz
+              - link [ref=e395] [cursor=pointer]:
+                - /url: /pl/sklep/produkty/akcesoria/fabric-carry-case
+              - generic [ref=e397]:
+                - button "Black" [ref=e400]
+                - button "Zielony" [ref=e403]
+        - generic [ref=e404]:
+          - generic [ref=e405]:
+            - paragraph
+          - generic [ref=e406]:
+            - img "Pokrowiec skórzany w koloże beżowym" [ref=e408]
+            - generic [ref=e409]:
+              - banner [ref=e410]:
+                - heading "Pokrowiec skórzany Beige" [level=3] [ref=e411]
+              - generic [ref=e414]: 89,99 zł
+              - link "Kup teraz" [ref=e418] [cursor=pointer]:
+                - /url: /content/ploom/ploom-pl/pl/sklep/produkty/akcesoria/pokrowiec-skorzany-beige
+                - generic [ref=e419]: Kup teraz
+              - link [ref=e420] [cursor=pointer]:
+                - /url: /pl/sklep/produkty/akcesoria/pokrowiec-skorzany-beige
+        - generic [ref=e421]:
+          - generic [ref=e422]:
+            - paragraph
+          - generic [ref=e423]:
+            - img "Pokrowiec skórzany Tan" [ref=e425]
+            - generic [ref=e426]:
+              - banner [ref=e427]:
+                - heading "Pokrowiec skórzany Tan" [level=3] [ref=e428]
+              - generic [ref=e431]: 89,99 zł
+              - link "Kup teraz" [ref=e435] [cursor=pointer]:
+                - /url: /content/ploom/ploom-pl/pl/sklep/produkty/akcesoria/pokrowiec-skorzany-tan
+                - generic [ref=e436]: Kup teraz
+              - link [ref=e437] [cursor=pointer]:
+                - /url: /pl/sklep/produkty/akcesoria/pokrowiec-skorzany-tan
+        - generic [ref=e438]:
+          - generic [ref=e439]:
+            - paragraph
+          - generic [ref=e440]:
+            - img "Etui skórzane Beige" [ref=e442]
+            - generic [ref=e443]:
+              - banner [ref=e444]:
+                - heading "Etui skórzane Beige" [level=3] [ref=e445]
+              - generic [ref=e448]: 59,99 zł
+              - link "Kup teraz" [ref=e452] [cursor=pointer]:
+                - /url: /content/ploom/ploom-pl/pl/sklep/produkty/akcesoria/etui-skorzane-beige
+                - generic [ref=e453]: Kup teraz
+              - link [ref=e454] [cursor=pointer]:
+                - /url: /pl/sklep/produkty/akcesoria/etui-skorzane-beige
+        - generic [ref=e455]:
+          - generic [ref=e456]:
+            - paragraph
+          - generic [ref=e457]:
+            - img "Etui skórzane Tan" [ref=e459]
+            - generic [ref=e460]:
+              - banner [ref=e461]:
+                - heading "Etui skórzane Tan" [level=3] [ref=e462]
+              - generic [ref=e465]: 59,99 zł
+              - link "Kup teraz" [ref=e469] [cursor=pointer]:
+                - /url: /content/ploom/ploom-pl/pl/sklep/produkty/akcesoria/etui-skorzane-tan
+                - generic [ref=e470]: Kup teraz
+              - link [ref=e471] [cursor=pointer]:
+                - /url: /pl/sklep/produkty/akcesoria/etui-skorzane-tan
+        - generic [ref=e472]:
+          - generic [ref=e473]:
+            - paragraph
+          - generic [ref=e474]:
+            - img "Zestaw Ploom X ze skórzanym etui" [ref=e476]
+            - generic [ref=e477]:
+              - banner [ref=e478]:
+                - heading "Zestaw Ploom ze skórzanym etui" [level=3] [ref=e479]
+              - generic [ref=e482]: 143,04 zł
+              - link "Kup teraz" [ref=e486] [cursor=pointer]:
+                - /url: /content/ploom/ploom-pl/pl/sklep/produkty/zestawy/ploom-x-zestaw-ze-skorzanym-etui
+                - generic [ref=e487]: Kup teraz
+              - link [ref=e488] [cursor=pointer]:
+                - /url: /pl/sklep/produkty/zestawy/ploom-x-zestaw-ze-skorzanym-etui
+        - generic [ref=e489]:
+          - generic [ref=e490]:
+            - paragraph
+          - generic [ref=e491]:
+            - img "Zestaw Ploom X z panelem zielonym i etui czarne" [ref=e493]
+            - generic [ref=e494]:
+              - banner [ref=e495]:
+                - heading "Zestaw Ploom z panelem i etui" [level=3] [ref=e496]
+              - generic [ref=e499]: 175,34 zł
+              - link "Kup teraz" [ref=e503] [cursor=pointer]:
+                - /url: /content/ploom/ploom-pl/pl/sklep/produkty/zestawy/ploom-x-zestaw-z-panelem-i-etui
+                - generic [ref=e504]: Kup teraz
+              - link [ref=e505] [cursor=pointer]:
+                - /url: /pl/sklep/produkty/zestawy/ploom-x-zestaw-z-panelem-i-etui
+        - generic [ref=e506]:
+          - generic [ref=e507]:
+            - paragraph
+          - generic [ref=e508]:
+            - img "Zestaw Ploom X Advanced granatowy z wymiennym panelem żółtym" [ref=e510]
+            - generic [ref=e511]:
+              - banner [ref=e512]:
+                - heading "Zestaw Ploom z wymiennym panelem" [level=3] [ref=e513]
+              - generic [ref=e516]: 128,79 zł
+              - link "Kup teraz" [ref=e520] [cursor=pointer]:
+                - /url: /content/ploom/ploom-pl/pl/sklep/produkty/zestawy/ploom-x-zestaw-z-wymiennym-panelem
+                - generic [ref=e521]: Kup teraz
+              - link [ref=e522] [cursor=pointer]:
+                - /url: /pl/sklep/produkty/zestawy/ploom-x-zestaw-z-wymiennym-panelem
+        - generic [ref=e523]:
+          - generic [ref=e524]:
+            - paragraph
+          - generic [ref=e525]:
+            - img "Ploom X Advanced czarny kabel USB render z góry" [ref=e527]
+            - generic [ref=e528]:
+              - banner [ref=e529]:
+                - heading "Kabel USB-C" [level=3] [ref=e530]
+              - generic [ref=e533]: 28,99 zł
+              - link "Kup teraz" [ref=e537] [cursor=pointer]:
+                - /url: /content/ploom/ploom-pl/pl/sklep/produkty/akcesoria/ploom-x-advanced-kabel-usb-c
+                - generic [ref=e538]: Kup teraz
+              - link [ref=e539] [cursor=pointer]:
+                - /url: /pl/sklep/produkty/akcesoria/ploom-x-advanced-kabel-usb-c
+        - generic [ref=e540]:
+          - generic [ref=e541]:
+            - paragraph
+          - generic [ref=e542]:
+            - img "Pudełko z zasilaczem sieciowym" [ref=e544]
+            - generic [ref=e545]:
+              - banner [ref=e546]:
+                - heading "Zasilacz sieciowy" [level=3] [ref=e547]
+              - generic [ref=e550]: 62,99 zł
+              - link "Kup teraz" [ref=e554] [cursor=pointer]:
+                - /url: /content/ploom/ploom-pl/pl/sklep/produkty/akcesoria/ploom-x-advanced-zasilacz-sieciowy
+                - generic [ref=e555]: Kup teraz
+              - link [ref=e556] [cursor=pointer]:
+                - /url: /pl/sklep/produkty/akcesoria/ploom-x-advanced-zasilacz-sieciowy
+    - contentinfo [ref=e560]:
+      - list [ref=e566]:
+        - link "Znajdź sklep" [ref=e568] [cursor=pointer]:
+          - /url: /content/ploom/ploom-pl/pl/gdzie-kupic
+          - generic [ref=e569]: Znajdź sklep
+          - img [ref=e570]
+        - link "Napisz do nas" [ref=e573] [cursor=pointer]:
+          - /url: /content/ploom/ploom-pl/pl/wsparcie/kontakt
+          - generic [ref=e574]: Napisz do nas
+          - img [ref=e575]
+        - link "Zadzwoń do nas 800 808 000" [ref=e578] [cursor=pointer]:
+          - /url: tel:800 808 000
+          - generic [ref=e579]: Zadzwoń do nas 800 808 000
+      - generic [ref=e583]:
+        - paragraph [ref=e585]: Produkty te nie są pozbawione ryzyka i uzależniają. Tylko do użytku dla dorosłych.
+        - link "logo" [ref=e588] [cursor=pointer]:
+          - /url: /pl
+          - img "logo" [ref=e589]
+        - generic [ref=e590]:
+          - generic [ref=e592]:
+            - heading "Produkty" [level=3] [ref=e593]
+            - list [ref=e594]:
+              - listitem [ref=e595]:
+                - link "Ploom X" [ref=e596] [cursor=pointer]:
+                  - /url: /pl/sklep/produkty/urzadzenie
+              - listitem [ref=e597]:
+                - link "Akcesoria" [ref=e598] [cursor=pointer]:
+                  - /url: /pl/sklep/produkty/akcesoria
+              - listitem [ref=e599]:
+                - link "Zestawy" [ref=e600] [cursor=pointer]:
+                  - /url: /pl/sklep/produkty/zestawy
+          - generic [ref=e602]:
+            - heading "Wsparcie" [level=3] [ref=e603]
+            - list [ref=e604]:
+              - listitem [ref=e605]:
+                - link "Kontakt" [ref=e606] [cursor=pointer]:
+                  - /url: /pl/wsparcie/kontakt
+              - listitem [ref=e607]:
+                - link "Lokalizator sklepów" [ref=e608] [cursor=pointer]:
+                  - /url: /pl/gdzie-kupic
+              - listitem [ref=e609]:
+                - link "FAQ" [ref=e610] [cursor=pointer]:
+                  - /url: /pl/wsparcie/faq
+              - listitem [ref=e611]:
+                - link "Pomoc dotycząca produktów" [ref=e612] [cursor=pointer]:
+                  - /url: /pl/wsparcie
+              - listitem [ref=e613]:
+                - link "Gwarancja" [ref=e614] [cursor=pointer]:
+                  - /url: /pl/gwarancja
+              - listitem [ref=e615]:
+                - link "Zwroty i reklamacje" [ref=e616] [cursor=pointer]:
+                  - /url: /pl/zwroty-i-reklamacje
+              - listitem [ref=e617]:
+                - link "Formy dostaw i płatności" [ref=e618] [cursor=pointer]:
+                  - /url: /pl/formy-dostaw-i-platnosci
+          - generic [ref=e620]:
+            - heading "Ploom" [level=3] [ref=e621]
+            - list [ref=e622]:
+              - listitem [ref=e623]:
+                - link "Dlaczego Ploom?" [ref=e624] [cursor=pointer]:
+                  - /url: /pl/dlaczego-ploom
+              - listitem [ref=e625]:
+                - link "Instrukcje i deklaracje" [ref=e626] [cursor=pointer]:
+                  - /url: /pl/instrukcje-deklaracje
+              - listitem [ref=e627]:
+                - link "Weryfikacja wieku" [ref=e628] [cursor=pointer]:
+                  - /url: /pl/weryfikacja-wieku
+              - listitem [ref=e629]:
+                - link "Deklaracja dostępności" [ref=e630] [cursor=pointer]:
+                  - /url: /pl/deklaracja-dostepnosci-strony
+        - generic [ref=e634]:
+          - paragraph [ref=e636]: Ploom Poland © 2025
+          - list [ref=e639]:
+            - listitem [ref=e640]:
+              - link "Regulamin sklepu" [ref=e641] [cursor=pointer]:
+                - /url: /pl/regulamin-sklepu
+            - listitem [ref=e642]:
+              - link "Polityka prywatności" [ref=e643] [cursor=pointer]:
+                - /url: /pl/polityka-prywatnosci
+  - generic [ref=e647]:
+    - img [ref=e651]
+    - generic [ref=e654]: Strona Ploom.pl jest przeznaczona dla pełnoletnich osób palących.
+    - heading "Czy masz ukończone 18 lat?" [level=3] [ref=e657]
+    - paragraph [ref=e660]: Aby wejść na tę stronę, musisz mieć ukończone 18 lat.
+    - generic [ref=e662]:
+      - generic [ref=e665] [cursor=pointer]: Potwierdź
+      - link "Wyjdź" [ref=e667] [cursor=pointer]:
+        - /url: https://google.pl/
+        - generic [ref=e668]: Wyjdź
+  - button "Open Engagement Messenger" [ref=e670] [cursor=pointer]:
+    - img "Messanger- launcher" [ref=e671]
+    - generic [ref=e672]: ...
+  - region "Baner ciasteczkowy" [ref=e674]:
+    - dialog "prywatność" [ref=e675]:
+      - generic [ref=e677]:
+        - generic [ref=e680]:
+          - text: Poprzez kliknięcie na „Akceptacja wszystkich plików cookie” jest wyrażona zgoda na przechowywanie plików cookie na swoim urządzeniu w celu usprawnienia korzystania z nawigacji strony, analizowania wykorzystania strony i wsparcia naszych działań marketingowych.
+          - link "Polityka prywatności, otwiera się w nowym oknie" [active] [ref=e681] [cursor=pointer]:
+            - /url: https://www.ploom.pl/pl/polityka-prywatnosci
+            - text: Polityka prywatności
+        - generic [ref=e683]:
+          - button "Ustawienia plików cookie" [ref=e684] [cursor=pointer]
+          - button "Odrzucenie wszystkich" [ref=e685] [cursor=pointer]
+          - button "Akceptuj wszystkie pliki cookie" [ref=e686] [cursor=pointer]
+      - button "Zamknięcie" [ref=e688] [cursor=pointer]
+```
