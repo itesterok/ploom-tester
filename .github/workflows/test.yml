@@ -102,4 +102,4 @@ jobs:
         run: |
           REPORT_FOLDER="${{ steps.prepare-report.outputs.folder }}"
           REPORT_URL="https://itesterok.github.io/ploom-tester/${REPORT_FOLDER}/index.html"
-          echo "::notice::Test report will be available at: ${REPORT_URL}"
+          echo "::notice::Test report available at: [View Report](${REPORT_URL})"
