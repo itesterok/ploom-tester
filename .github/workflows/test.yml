@@ -58,7 +58,7 @@ jobs:
 
       - name: Install Playwright browsers
         run: |
-          if [ "${{ github.event.inputs.browser }}" == "all-markets" ]; then
+          if [ "${{ github.event.inputs.browser }}" == "all" ]; then
             npx playwright install --with-deps
           else
             npx playwright install --with-deps ${{ github.event.inputs.browser }}
@@ -66,7 +66,7 @@ jobs:
 
       - name: Run tests
         run: |
-          if [ "${{ github.event.inputs.browser }}" == "all-markets" ]; then
+          if [ "${{ github.event.inputs.browser }}" == "all" ]; then
             MARKETS=${{ github.event.inputs.market }} npx playwright test
           else
             MARKETS=${{ github.event.inputs.market }} npx playwright test --project=${{ github.event.inputs.browser }}
