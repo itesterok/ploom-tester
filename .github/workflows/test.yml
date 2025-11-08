@@ -8,7 +8,7 @@ on:
         required: true
         type: choice
         options:
-          - all
+          - all-markets
           - uk
           - pl
           - sl
@@ -27,6 +27,10 @@ jobs:
   run-test:
     name: Execute test
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
 
     steps:
       - name: Checkout code
@@ -54,7 +58,7 @@ jobs:
 
       - name: Install Playwright browsers
         run: |
-          if [ "${{ github.event.inputs.browser }}" == "all" ]; then
+          if [ "${{ github.event.inputs.browser }}" == "all-markets" ]; then
             npx playwright install --with-deps
           else
             npx playwright install --with-deps ${{ github.event.inputs.browser }}
@@ -62,7 +66,7 @@ jobs:
 
       - name: Run tests
         run: |
-          if [ "${{ github.event.inputs.browser }}" == "all" ]; then
+          if [ "${{ github.event.inputs.browser }}" == "all-markets" ]; then
             MARKETS=${{ github.event.inputs.market }} npx playwright test
           else
             MARKETS=${{ github.event.inputs.market }} npx playwright test --project=${{ github.event.inputs.browser }}
@@ -85,16 +89,11 @@ jobs:
           DATETIME_FOLDER=$(date -u +"%Y-%m-%d-%H-%M")
           echo "folder=${DATETIME_FOLDER}" >> $GITHUB_OUTPUT
 
-      - name: Upload report to GitHub Pages
-        if: always()
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: playwright-report-pages
-
       - name: Publish report
         if: always()
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: playwright-report
           destination_dir: ${{ steps.prepare-report.outputs.folder }}
 
