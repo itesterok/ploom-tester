@@ -1,8 +1,7 @@
-import {Page, Locator} from '@playwright/test';
+import {Page} from '@playwright/test';
 import {TopNavigationMenu} from '../components/TopNavigationMenu';
 import {Cookies} from '../components/Cookies';
 import {AgeConfirmation} from '../components/AgeConfirmation';
-import {WaitersConfig} from '../config/waiters.config';
 import {MyCart} from "../components/MyCart";
 
 export class BasePage {
@@ -14,7 +13,7 @@ export class BasePage {
     constructor(protected page: Page) {
         this.navigationMenu = new TopNavigationMenu(page);
         this.cookies = new Cookies(page);
-        this.ageConfirmation = new AgeConfirmation(page);
+        this.ageConfirmation = new AgeConfirmation(page, this.cookies);
         this.myCartFragment = new MyCart(page);
         this.setupPossibleOverlaysHandlers();
     }
@@ -29,7 +28,7 @@ export class BasePage {
 
     private async setupPossibleOverlaysHandlers(): Promise<void> {
         await this.page.addLocatorHandler(
-            this.cookies.getRejectAllButton(), async () => {
+            this.cookies.getModalWindow(), async () => {
                 await this.cookies.handleCookies();
             }
         );

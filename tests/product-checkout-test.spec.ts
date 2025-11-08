@@ -1,12 +1,11 @@
 import {test, expect} from '../src/fixtures/testFixtures';
-import {LocaleCode} from '../src/config/locale.config';
+import {LocaleCode, getMarketsToTest} from '../src/config/locale.config';
 
 const productSku = 'ploom-x-a';
 const expectedCartCount = 1;
 const expectedProductName = 'Ploom X Advanced Black';
 
-// Run teest for different markets
-const locales: LocaleCode[] = ['pl', 'uk', 'sl'];
+const locales: LocaleCode[] = getMarketsToTest();
 
 test.describe('Product checkout test', () => {
     locales.forEach((localeCode) => {

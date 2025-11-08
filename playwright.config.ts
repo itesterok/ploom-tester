@@ -10,7 +10,7 @@ export default defineConfig({
     retries: process.env.CI ? 2 : 0,
     workers: process.env.CI ? 2 : undefined, // Use 2 workers in CI, auto-detect locally (CPU cores)
     reporter: [['html', { open: 'never' }]], // Generate static HTML report without opening server
-    timeout: 120000,
+    timeout: 60000,
     use: {
         baseURL: locale.baseDomain, // Use locale-specific base domain
         trace: 'on-first-retry',

@@ -1,16 +1,14 @@
 name: Run E2E Tests
 
 on:
-  schedule:
-    # Run daily at midnight UTC
-    - cron: '0 0 * * *'
   workflow_dispatch:
     inputs:
       market:
-        description: 'Market to test (uk, pl, sl)'
+        description: 'Market to test'
         required: true
         type: choice
         options:
+          - all
           - uk
           - pl
           - sl
@@ -20,17 +18,16 @@ on:
         required: true
         type: choice
         options:
+          - all
           - chromium
           - firefox
         default: 'chromium'
 
 jobs:
-  test:
-    name: Test on ${{ github.event.inputs.market || 'uk' }} - ${{ github.event.inputs.browser || 'chromium' }}
+  run-test:
+    name: Execute test
     runs-on: ubuntu-latest
-    outputs:
-      report_folder: ${{ steps.prepare-report.outputs.folder }}
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -50,60 +47,56 @@ jobs:
         with:
           path: |
             ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ github.event.inputs.browser || 'chromium' }}-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-playwright-${{ github.event.inputs.browser }}-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-playwright-${{ github.event.inputs.browser || 'chromium' }}-
+            ${{ runner.os }}-playwright-${{ github.event.inputs.browser }}-
             ${{ runner.os }}-playwright-
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps ${{ github.event.inputs.browser || 'chromium' }}
+        run: |
+          if [ "${{ github.event.inputs.browser }}" == "all" ]; then
+            npx playwright install --with-deps
+          else
+            npx playwright install --with-deps ${{ github.event.inputs.browser }}
+          fi
 
       - name: Run tests
-        env:
-          LOCALE: ${{ github.event.inputs.market || 'uk' }}
-        run: npx playwright test --project=${{ github.event.inputs.browser || 'chromium' }}
+        run: |
+          if [ "${{ github.event.inputs.browser }}" == "all" ]; then
+            MARKETS=${{ github.event.inputs.market }} npx playwright test
+          else
+            MARKETS=${{ github.event.inputs.market }} npx playwright test --project=${{ github.event.inputs.browser }}
+          fi
 
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results-${{ github.event.inputs.market || 'uk' }}-${{ github.event.inputs.browser || 'chromium' }}-${{ github.run_number }}
+          name: test-results-${{ github.event.inputs.market }}-${{ github.event.inputs.browser }}-${{ github.run_number }}
           path: |
-            test-results/
             playwright-report/
           retention-days: 5
 
-      - name: Prepare report for GitHub Pages
+      - name: Get current date and time
         if: always()
         id: prepare-report
-        run: |
-          # Ensure playwright-report directory exists
-          if [ ! -d "playwright-report" ]; then
-            echo "Warning: playwright-report directory not found. Creating empty report."
-            mkdir -p playwright-report
-            echo "<html><body><h1>No test report available</h1><p>Tests may have failed before report generation.</p></body></html>" > playwright-report/index.html
-          fi
-          
-          # Create date-time folder name (YYYY-MM-DD-HH-MM format in UTC)
+        run: |          
+          # Create date-time folder
           DATETIME_FOLDER=$(date -u +"%Y-%m-%d-%H-%M")
-          
-          # Create pages directory structure
-          mkdir -p playwright-report-pages/${DATETIME_FOLDER}
-          
-          # Copy report to date-time folder
-          cp -r playwright-report/* playwright-report-pages/${DATETIME_FOLDER}/ || true
-          
-          # Save folder name as output
           echo "folder=${DATETIME_FOLDER}" >> $GITHUB_OUTPUT
-          
-          echo "Report copied to folder: ${DATETIME_FOLDER}"
-          ls -la playwright-report-pages/${DATETIME_FOLDER}/ || true
 
       - name: Upload report to GitHub Pages
         if: always()
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: playwright-report-pages
+
+      - name: Publish report
+        if: always()
+        uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
+        with:
+          publish_dir: playwright-report
+          destination_dir: ${{ steps.prepare-report.outputs.folder }}
 
       - name: Print report URL
         if: always()
@@ -111,32 +104,3 @@ jobs:
           REPORT_FOLDER="${{ steps.prepare-report.outputs.folder }}"
           REPORT_URL="https://itesterok.github.io/ploom-tester/${REPORT_FOLDER}/index.html"
           echo "::notice::Test report will be available at: ${REPORT_URL}"
-          echo "📊 Test Report URL: ${REPORT_URL}"
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: test
-    if: always()
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-      - name: Print report URL
-        if: always()
-        run: |
-          REPORT_FOLDER="${{ needs.test.outputs.report_folder }}"
-          if [ -n "$REPORT_FOLDER" ]; then
-            REPORT_URL="https://itesterok.github.io/ploom-tester/${REPORT_FOLDER}/index.html"
-            echo "::notice::Test report is now available at: ${REPORT_URL}"
-            echo "📊 Test Report URL: ${REPORT_URL}"
-            echo ""
-            echo "✅ Deployment complete! View your report at:"
-            echo "   ${REPORT_URL}"
-          else
-            echo "⚠️  Report folder not found in outputs"
-          fi
-

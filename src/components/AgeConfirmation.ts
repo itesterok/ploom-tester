@@ -1,8 +1,9 @@
 import {Locator, Page} from '@playwright/test';
 import {WaitersConfig} from '../config/waiters.config';
+import {Cookies} from "./Cookies";
 
 export class AgeConfirmation {
-    constructor(private page: Page) {
+    constructor(private page: Page, private cookies: Cookies) {
     }
 
     getAcceptButton(): Locator {
@@ -11,8 +12,9 @@ export class AgeConfirmation {
 
     async confirmAge(): Promise<void> {
         await this.page.waitForLoadState();
-        if (await this.getAcceptButton().isVisible({timeout: WaitersConfig.short})) {
-            await this.getAcceptButton().click();
+        if (await this.cookies.getModalWindow().isVisible({timeout: WaitersConfig.medium})) {
+            await this.cookies.handleCookies();
         }
+        await this.getAcceptButton().click();
     }
 }
