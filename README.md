@@ -105,6 +105,32 @@ docker run --rm \
 
 **Note:** Use volume mounts (`-v`) to save test results and reports to your host machine. Without volumes, results are only available inside the container.
 
+## GitHub Actions
+
+You can run tests using GitHub Actions with customizable parameters. The workflow publishes test results to GitHub Pages.
+
+### Running Tests via GitHub Actions
+
+1. Go to the **Actions** tab in your GitHub repository
+2. Select **Run E2E Tests** workflow
+3. Click **Run workflow**
+4. Configure parameters:
+   - **Market**: Choose from `all-markets`, `uk`, `pl`, or `sl` (default: `uk`)
+   - **Browser**: Choose from `all`, `chromium`, or `firefox` (default: `chromium`)
+5. Click **Run workflow**
+
+### Viewing Test Results
+
+After the workflow completes, test results are automatically published to GitHub Pages. The report URL will be displayed in the workflow run output and follows this format:
+
+```
+https://itesterok.github.io/ploom-tester/{YYYY-MM-DD-HH-MM}/index.html
+```
+
+Where `{YYYY-MM-DD-HH-MM}` is a timestamp folder created for each run.
+
+**Note:** The report URL is also printed as a notice in the workflow run summary for easy access.
+
 ## Test Reports
 
 View HTML test reports:
