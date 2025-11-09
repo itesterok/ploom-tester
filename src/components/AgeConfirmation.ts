@@ -1,6 +1,7 @@
 import {Locator, Page} from '@playwright/test';
 import {WaitersConfig} from '../config/waiters.config';
 import {Cookies} from "./Cookies";
+import {waitForVisible} from "../utils/elementHelpers";
 
 export class AgeConfirmation {
     constructor(private page: Page, private cookies: Cookies) {
@@ -12,7 +13,7 @@ export class AgeConfirmation {
 
     async confirmAge(): Promise<void> {
         await this.page.waitForLoadState();
-        if (await this.cookies.getModalWindow().isVisible({timeout: WaitersConfig.medium})) {
+        if (await waitForVisible(this.cookies.getModalWindow(), WaitersConfig.medium)) {
             await this.cookies.handleCookies();
         }
         await this.getAcceptButton().click();

@@ -5,17 +5,17 @@ const locale = getCurrentLocale();
 
 export default defineConfig({
     testDir: './tests',
-    fullyParallel: true, // Run tests in parallel across workers
+    fullyParallel: true,
     forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 2 : 0,
-    workers: process.env.CI ? 2 : undefined, // Use 2 workers in CI, auto-detect locally (CPU cores)
-    reporter: [['html', { open: 'never' }]], // Generate static HTML report without opening server
+    workers: process.env.CI ? 2 : undefined,
+    reporter: [['html', { open: 'never' }]],
     timeout: 60000,
     use: {
-        baseURL: locale.baseDomain, // Use locale-specific base domain
+        baseURL: locale.baseDomain,
         trace: 'on-first-retry',
         screenshot: 'only-on-failure',
-        video: 'retain-on-failure', // Record video for all tests, keep only on failure
+        video: 'retain-on-failure',
         headless: !!process.env.CI, // Run headless in CI, visible locally
     },
     projects: [
@@ -24,6 +24,10 @@ export default defineConfig({
             use: {
                 ...devices['Desktop Chrome'],
                 video: 'retain-on-failure',
+                // Docker-friendly launch args for Chromium
+                launchOptions: {
+                    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+                },
             },
         },
         {
@@ -31,6 +35,10 @@ export default defineConfig({
             use: {
                 ...devices['Desktop Firefox'],
                 video: 'retain-on-failure',
+                // Docker-friendly launch args for Firefox
+                launchOptions: {
+                    args: ['--no-sandbox'],
+                },
             },
         },
     ],

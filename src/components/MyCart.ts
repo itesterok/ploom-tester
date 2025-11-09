@@ -1,16 +1,17 @@
 import {Page} from "@playwright/test";
 import {WaitersConfig} from "../config/waiters.config";
+import {waitForVisible} from "../utils/elementHelpers";
 
 export class MyCart {
     constructor(private page: Page) {
     }
 
     async isPresent(): Promise<boolean> {
-        return await this.page.locator("button[data-testid=cartIcon]").isVisible({timeout: WaitersConfig.short});
+        return await waitForVisible(this.page.locator("button[data-testid=cartIcon]"), WaitersConfig.short);
     }
 
     async isCartEmpty() {
-        return this.page.locator(".emptyCartContainer").isVisible({timeout: WaitersConfig.short});
+        return await waitForVisible(this.page.locator(".emptyCartContainer"), WaitersConfig.short);
     }
 
     async getNumberOfProducts(): Promise<number> {
